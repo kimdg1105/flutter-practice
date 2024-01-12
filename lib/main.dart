@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent)),
-      home: const FirstScreen(),
+      home: FirstScreen(),
     );
   }
 }

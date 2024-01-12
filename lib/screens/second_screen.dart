@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
+  final String screenData;
+
+  const SecondScreen({required this.screenData});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +13,7 @@ class SecondScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Second Screen"),
+            Text("screen Data: $screenData"),
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop();
