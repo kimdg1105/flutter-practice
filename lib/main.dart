@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/first_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,27 +44,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    for (var i = 0; i < 50; i++) {
-      myChildren.add(Text("플러터 ㅋㅋ" + i.toString()));
-    }
-
-    return Scaffold(
-        backgroundColor: Colors.greenAccent,
-        appBar: AppBar(
-          title: Text(
-            title,
-            style: const TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 26,
-                fontWeight: FontWeight.w700),
-          ),
-        ),
-        body: Column(
-          children: [
-            TextButton(onPressed: () {}, child: Text("텍스트 버튼")),
-            ElevatedButton(onPressed: () {}, child: Text("엘리베이트 버튼")),
-            OutlinedButton(onPressed: () {}, child: Text("아웃라인 버튼")),
-          ],
-        ));
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent)),
+      home: const FirstScreen(),
+    );
   }
 }
