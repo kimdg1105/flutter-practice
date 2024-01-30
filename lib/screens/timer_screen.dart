@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/status/timer_status.dart';
-import 'package:sprintf/sprintf.dart';
+import 'package:flutter_application_1/tools/utils.dart';
 
 class TimerScreen extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  static const WORK_SECONDS = 25;
+  static const WORK_SECONDS = 10;
   static const REST_SECONDS = 5;
 
   late TimerStatus _timerStatus;
@@ -73,7 +73,7 @@ class _TimerScreenState extends State<TimerScreen> {
           break;
         case TimerStatus.running:
           if (_seconds <= 0) {
-            print("작업 완료!");
+            showToast("작업 완료!");
             rest();
           } else {
             setState(() {
@@ -86,7 +86,7 @@ class _TimerScreenState extends State<TimerScreen> {
             setState(() {
               _pomodoroCount++;
             });
-            print("오늘 $_pomodoroCount 개의 작업 완료!");
+            showToast("오늘 $_pomodoroCount 개의 작업 완료!");
             t.cancel();
             stop();
           } else {
@@ -99,10 +99,6 @@ class _TimerScreenState extends State<TimerScreen> {
           break;
       }
     });
-  }
-
-  String secondsToString(int seconds) {
-    return sprintf("%02d:%02d", [seconds ~/ 60, seconds % 60]);
   }
 
   @override
@@ -118,7 +114,7 @@ class _TimerScreenState extends State<TimerScreen> {
       ),
       Padding(padding: EdgeInsets.all(20)),
       ElevatedButton(
-        child: Text("", style: TextStyle(fontSize: 16)),
+        child: Text("그만하자 오늘은", style: TextStyle(fontSize: 16)),
         onPressed: stop,
       )
     ];
